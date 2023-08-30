@@ -1,0 +1,4 @@
+﻿using System.Reflection;Type type = typeof(MyClass);PropertyInfo[] props = type.GetProperties();foreach (var item in props){    Console.WriteLine(item.Name);}MethodInfo[] methods = type.GetMethods();foreach (var item in methods){    Console.WriteLine(item.Name);}object obj = Activator.CreateInstance(type);PropertyInfo prop = type.GetProperty("MyProperty");prop.SetValue(obj, 12);if (obj is MyClass myClass){    Console.WriteLine(myClass.MyProperty);}MethodInfo method = type.GetMethod("MyMethod");method.Invoke(obj, null);class MyClass{    public int MyProperty { get; set; }    int MyProperty2 { get; set; }    public int MyProperty3 { get; set; }    public void MyMethod() { Console.WriteLine("MyMethod"); }
+    public void MyMethod2() { Console.WriteLine("MyMethod2"); }
+    void MyMethod3() { Console.WriteLine("MyMethod3"); }
+}
